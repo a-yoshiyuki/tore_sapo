@@ -3,4 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :name, presence: true
+
+  enum user_style: { トレーナー: 0, トレーニー: 1 }
+
 end

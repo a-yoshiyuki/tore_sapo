@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'devise'
 gem 'cancancan'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-i18n'
