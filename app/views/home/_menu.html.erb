@@ -1,4 +1,4 @@
-  <%# if current_user.user_style.0? %>
+  <% if user.トレーナー? %>
     メッセージ
     契約トレーニー
     売上管理
@@ -6,11 +6,11 @@
     フォローリスト
     フォロワーリスト
     いいね数
-  <%# elsif current_user.user_style.1? %>
+  <% elsif user.トレーニー? %>
     メッセージ
     契約トレーナー
     支払い履歴
     設定
     フォローリスト
     フォロワーリスト
-  <%# end %>
+  <% end %>

@@ -2,4 +2,4 @@
 <p><%= @user.user_style %></p>
 
 <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<%= render 'home/menu' %>
+<%= render 'home/menu', user: @user %>
