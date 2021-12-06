@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   enum user_style: { トレーナー: 0, トレーニー: 1 }
 
+  mount_uploader :image, ImageUploader
+
 end

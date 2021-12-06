@@ -4,7 +4,17 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :ユーザーネーム %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :アイコン %><br/>
+    <%= f.file_field :image %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -29,6 +39,24 @@
   <div class="field">
     <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_area :self_introduction, autofocus: true %>
+  </div>
+
+  <div class="custom-control custom-radio">
+    <%= f.label :ユーザースタイル %><br />
+    <% User.user_styles.each do |user_style| %>
+      <%= f.radio_button :user_style, user_style[0] %>
+      <%= f.label user_style[0] %>
+    <% end %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :経歴・実績 %><br />
+    <%= f.text_area :career, autofocus: true %>
   </div>
 
   <div class="actions">
