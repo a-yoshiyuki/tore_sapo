@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'test/index'
+  get 'shared/index'
   get 'home/index'
   root :to => 'info#index'
   devise_for :users, controllers: {   registrations: 'users/registrations', sessions: 'users/sessions' }
