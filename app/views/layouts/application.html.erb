@@ -16,12 +16,12 @@
           <h3 class="nav_title">トレサポ</h3>
         </div>
         <ul>
-          <% if current_user.トレーナー? %>
-                <li>トレーナー</li>
-          <% elsif current_user.トレーニー? %>
-                <li>トレーニー</li>
-          <% elsif current_page?(root_path) %>
-
+          <% if user_signed_in? %>
+            <% if current_user.トレーナー? %>
+                  <li>トレーナー</li>
+              <% elsif current_user.トレーニー? %>
+                    <li>トレーニー</li>
+            <% end %>
           <% else %>
           <% end %>
         </ul>
