@@ -8,7 +8,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-  web:
+  web: &myapp
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -25,6 +25,22 @@ services:
       - db
     tty: true
     stdin_open: true
+
+  webpack:
+    <<: *myapp
+    command: /bin/sh -c "bundle install && yarn install --check-files && bin/webpack-dev-server"
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      BUNDLE_APP_CONFIG: ./.bundle
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    ports:
+      - 3035:3035
+    tty: true
+    stdin_open: true
+    depends_on:
+      - web
+
 volumes:
   mysql-data:
     driver: local
