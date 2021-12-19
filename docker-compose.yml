@@ -10,11 +10,12 @@ services:
       - mysql-data:/var/lib/mysql
   web: &myapp
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && yarn install && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
       - tmp-data:/myapp/tmp
       - log-data:/myapp/log
+      - node_modules-data:/myapp/node_modules
     environment:
       - MYSQL_HOSTNAME=db
       - MYSQL_PASSWORD=password
@@ -28,7 +29,7 @@ services:
 
   webpack:
     <<: *myapp
-    command: /bin/sh -c "bundle install && yarn install --check-files && bin/webpack-dev-server"
+    command: /bin/sh -c "bundle install && yarn install && bin/webpack-dev-server"
     environment:
       NODE_ENV: development
       RAILS_ENV: development
@@ -46,3 +47,4 @@ volumes:
     driver: local
   tmp-data:
   log-data:
+  node_modules-data:
