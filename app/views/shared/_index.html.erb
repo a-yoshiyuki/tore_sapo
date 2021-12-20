@@ -1,14 +1,16 @@
 <% if user.トレーナー? %>
-  <ul class="list-group">
-    <li class="list-group-item">メッセージ</li>
-    <li class="list-group-item">契約トレーニー</li>
-    <li class="list-group-item">売上管理</li>
-    <li class="list-group-item">設定</li>
-    <li class="list-group-item">フォローリスト</li>
-    <li class="list-group-item">フォロワーリスト</li>
-    <li class="list-group-item">いいね数</li>
+<div id="app">
+  <ul class="list">
+    <li v-for="list in listlabel" class="list-item">
+      <a href="#" v-bind:class="{active:active===list}" @click="dropdown(list)">{{list}}</a>
+      <ul v-if="active===list">
+        <li v-for="item in sublistlabel" class="sublist-item">
+          <a href="#" v-bind:label="item">{{item}}</a>
+        </li>
+      </ul>
+    </li>
   </ul>
-<% elsif user.トレーニー? %>
+</div><% elsif user.トレーニー? %>
   <ul>
     <li>メッセージ
     <li>契約トレーナー
