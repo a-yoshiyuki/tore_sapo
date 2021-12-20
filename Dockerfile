@@ -7,7 +7,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get update -qq \
   && apt-get install -y nodejs yarn \
   && mkdir /myapp 
-RUN yarn global add webpack-dev-server
 
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
