@@ -1,13 +1,11 @@
 <% if user.トレーナー? %>
-  <ul class="list-group">
-    <li class="list-group-item">メッセージ</li>
-    <li class="list-group-item">契約トレーニー</li>
-    <li class="list-group-item">売上管理</li>
-    <li class="list-group-item">設定</li>
-    <li class="list-group-item">フォローリスト</li>
-    <li class="list-group-item">フォロワーリスト</li>
-    <li class="list-group-item">いいね数</li>
-  </ul>
+  <div id="side_bar">
+    <ul class="list-group">
+      <li class="list-group-item">
+      {{ message }}
+      </li>
+    </ul>
+  </div>
 <% elsif user.トレーニー? %>
   <ul>
     <li>メッセージ
@@ -17,4 +15,4 @@
     <li>フォローリスト
     <li>フォロワーリスト
   </ul>
-  <% end %>
+<% end %>
