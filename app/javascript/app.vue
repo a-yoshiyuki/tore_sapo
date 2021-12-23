@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <p>{{ message }}</p>
+    <router-view />
   </div>
 </template>
 
@@ -10,17 +11,10 @@ import axios from 'axios';
 export default {
   data: function () {
     return {
-      message: "こんにちは!",
+      message: "Hello Vue!",
     }
   },
 };
-
-var side_bar = new Vue({
-	el: '#side_bar',
-  data: {
-    listitem: "こんにちは!"
-  }
-})
 </script>
 
 <style scoped>
