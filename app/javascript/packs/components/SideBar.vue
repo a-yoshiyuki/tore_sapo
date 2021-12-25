@@ -9,7 +9,7 @@ export default {
   name: 'SideBar',
   data() {
     return {
-      listItem: {メッセージ}
+      listItem: "メッセージ"
     }
   },
 };
