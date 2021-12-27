@@ -1,6 +1,7 @@
 <template>
   <div id= "SideBar" >
-    {{ listItem }}
+  
+    <p>これはVue.jsからssです</p>
   </div>
 </template>
 

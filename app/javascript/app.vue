@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>{{ message }}</p>
-    <router-view />
+    <p>{{message}}</p>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import axios from 'axios';
 export default {
   data: function () {
     return {
-      message: "Hello Vue!",
+      message: "Hello Vuw11111!",
     }
   },
 };
