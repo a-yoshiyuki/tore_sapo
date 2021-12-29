@@ -7,8 +7,8 @@
       <li class="list-group-item">
         契約トレーニー
       </li>
-      <li class="list-group-item">
-        売上管理
+      <li class="list-group-item" v-on:mouseover="mouseOverAction">
+        {{message}}
       </li>
       <li class="list-group-item">
         設定
@@ -28,9 +28,29 @@
 </template>
 
 <script>
-//const app = new Vue({
+var SideBar = new Vue({
+  el: '#SideBar',
+  data: {
+    message: 'Hello Vue!'
+  }
+});
+//new Vue({
   //el: "#SideBar",
-    //data: {
+  //data: {
+        //message: "売上管理"
+    //},
+  //methods: {
+        //mouseOverAction: function () {
+            //this.message = "成功!";
+        //}
+    //}
+  //methods: {
+    //mouseOverAction(){
+      //this.SubList = true
+    //},
+    //mouseLeaveAction(){
+      //this.SubList = false
+    //}
   //}
-//})
+//});
 </script>
