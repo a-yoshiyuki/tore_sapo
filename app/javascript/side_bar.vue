@@ -7,7 +7,7 @@
       <li class="list-group-item">
         契約トレーニー
       </li>
-      <li class="list-group-item" v-on:mouseover="mouseOverAction">
+      <li class="list-group-item" v-on:mouseover="mouseOverAction" v-on:mouseleave="mouseLeaveAction">
         {{message}}
       </li>
       <li class="list-group-item">
@@ -37,6 +37,9 @@ export default {
   methods: {
     mouseOverAction: function () {
       this.message = "成功!";
+    },
+    mouseLeaveAction: function () {
+      this.message = "売上管理";
     }
   }
 };
