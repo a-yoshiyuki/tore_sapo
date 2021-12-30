@@ -2,7 +2,7 @@
   <div id="app">
     <p>{{ message }}</p>
     <dl>
-      <dt @click="isOpen" class="slideHead"> 
+      <dt @click="isOpen" class="slideHead">
         <p class="headText">詳しくはこちら</p>
       </dt>
       <SlideUpDown :active="isActive">
@@ -13,7 +13,7 @@
       <dd class="slideFoot">
         <p>★★★★</p>
       </dd>
-    </dl>  
+    </dl>
   </div>
 </template>
 
