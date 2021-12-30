@@ -28,22 +28,26 @@
 </template>
 
 <script>
-var SideBar = new Vue({
-  el: '#SideBar',
-  data: {
-    message: 'Hello Vue!'
+export default {
+  data: function () {
+    return {
+      message: "売上管理",
+    }
+  },
+  methods: {
+    mouseOverAction: function () {
+      this.message = "成功!";
+    }
   }
-});
+};
+
+
 //new Vue({
   //el: "#SideBar",
   //data: {
         //message: "売上管理"
     //},
-  //methods: {
-        //mouseOverAction: function () {
-            //this.message = "成功!";
-        //}
-    //}
+  
   //methods: {
     //mouseOverAction(){
       //this.SubList = true
