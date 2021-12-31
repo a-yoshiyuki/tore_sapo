@@ -9,8 +9,8 @@ import Vue from 'vue'
 import App from 'app.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const appaa = new Vue({
+  const app = new Vue({
     render: (h) => h(App),
   }).$mount()
-  document.body.appendChild(appaa.$el)
+  document.body.appendChild(app.$el)
 })
