@@ -36,7 +36,6 @@ import Vue from 'vue'
 import SlideUpDown from 'vue-slide-up-down'
 
 export default Vue.extend({
-  el: '#subList',
   data: function () {
     return {
       isActive: false,

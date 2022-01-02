@@ -58,7 +58,7 @@ p {
   text-align: center;
 }
 .slideBody {
-  height: 100px;
+  height: 100%;
   width: 30%;
   margin-left: 30px;
   color: #FFFFFF;
@@ -67,7 +67,7 @@ p {
   background-color: #0e0070;
 }
 .slideFoot {
-  height: 30px;
+  height: 30%;
   width: 30%;
   margin-left: 30px;
   color: #FFFFFF;
