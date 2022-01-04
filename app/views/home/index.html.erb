@@ -10,9 +10,9 @@
       <p><%= @user.user_style %></p>
       <p><%= @user.self_introduction %></p>
 
-      <%=link_to "プロフィール編集", edit_user_registration_path %>
-      <%=link_to "testページへ", test_index_path %>
-      <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "プロフィール編集", edit_user_registration_path %>
+      <%= link_to "testページへ", test_index_path %>
+      <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </body>
