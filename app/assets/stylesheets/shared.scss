@@ -6,47 +6,6 @@
   margin-left: 6%;
 }
 
-#app{
-  width:300px;
+ul {
+  list-style: none;
 }
-ul{
-  padding: 0;
-}
-li{
-  list-style:none;
-}
-a{
-  color:#333;
-  text-decoration:none;
-}
-.list{
-  padding: 0;
-  border:solid 1px #ccc;
-}
-.list-item a{
-  position: relative;
-  padding: 8px;
-  border-bottom:solid 1px #ccc;
-}
-.list-item a{
-  display: block;
-}
-.list-item:last-of-type a{
-  border-bottom:none;
-}
-.list-item > a::after{
-  content:"▼";
-  position: absolute;
-  top:12px;
-  right:10px;
-  font-size:10px;
-}
-.list-item >a.active::after{
-  content:"▲";
-}
-.sublist-item{
-  font-size:0.75rem;
-}
-//ul {
-  //list-style: none;
-//}
