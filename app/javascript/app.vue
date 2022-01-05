@@ -5,28 +5,15 @@
 </template>
 
 <script>
-export default {
+import Vue from 'vue'
+
+export default ({
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: "こんにちは!",
     }
-  }
-};
-
-new Vue({
-	el:"#app",
-  data:{
-  	listlabel:["メッセージ", "契約トレーニー", "売上管理","設定","フォローリスト", "フォロワーリスト", "いいね数"],
-    sublistlabel:["Cloth","Pants","Shoes","Goods"],
-    active:""
   },
-  methods:{
-  	dropdown(list){
-    console.log(this.active);
-    	this.active = this.active===list ? "":list;
-    }
-  }
-});
+})
 </script>
 
 <style scoped>
