@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'shared/index'
   get 'home/index'
   root :to => 'info#index'
+  resources :relationships, only: [:create, :destroy]
 
   namespace :api, {format: 'json'} do
     namespace :pj1 do
