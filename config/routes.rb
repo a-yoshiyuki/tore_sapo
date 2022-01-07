@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'test/index'
+  get 'test/test'
   get 'shared/index'
   get 'home/index'
   root :to => 'info#index'

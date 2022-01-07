@@ -10,7 +10,7 @@
         売上管理
         <SlideUpDown :active="isActive">
           <ul class="list-group list-group-flush">
-            <a href="../test/index" class="list-group-item">売上履歴</a>
+            <a href="../test/test" class="list-group-item">売上履歴</a>
             <a href="#" class="list-group-item">出金申請</a>
             <a href="#" class="list-group-item">出金履歴</a>
           </ul>
