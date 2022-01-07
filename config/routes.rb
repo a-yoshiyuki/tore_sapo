@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   get 'test/test'
   get 'shared/index'
-  get 'home/index'
+  get 'user/home'
+  get 'user/index'
   root :to => 'info#index'
   resources :relationships, only: [:create, :destroy]
 

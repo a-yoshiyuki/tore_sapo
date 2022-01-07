@@ -1,6 +1,9 @@
-class HomeController < ApplicationController
-  def index
+class UserController < ApplicationController
+  def home
     @user = current_user
+  end
+
+  def index
   end
 
   private
