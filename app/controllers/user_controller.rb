@@ -4,6 +4,7 @@ class UserController < ApplicationController
   end
 
   def index
+    @trainers = User.where(user_style: 0)
   end
 
   private

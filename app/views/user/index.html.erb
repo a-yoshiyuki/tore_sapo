@@ -1,1 +1,7 @@
-トレーナー or トレーニーの一覧にする予定
+<% @trainers.each do |trainers| %>
+  <ul>
+    <li>
+      <%= trainers.name %>
+    </li>
+  </ul>
+<% end %>
