@@ -1,7 +1,9 @@
-<% @trainers.each do |trainers| %>
+<% @trainers.each do |trainer| %>
   <ul>
     <li>
-      <%= trainers.name %>
+      <%= link_to user_show_path(trainer) do %>
+        <%= trainer.name %>
+      <% end %>
     </li>
   </ul>
 <% end %>

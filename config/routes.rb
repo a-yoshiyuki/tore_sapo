@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'shared/index'
   get 'user/home'
   get 'user/index'
+  get 'user/show'
   root :to => 'info#index'
   resources :relationships, only: [:create, :destroy]
 
