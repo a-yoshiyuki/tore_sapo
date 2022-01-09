@@ -22,7 +22,9 @@
               <li>トレーナー</li>
             <% elsif current_user.トレーニー? %>
               <%= link_to "トレーナーを探す", user_index_path %>
-              <li>トレーニー</li>
+              <%= link_to user_home_path do %>
+                <li>トレーニー</li>
+              <% end %>
             <% end %>
           <% else %>
           <% end %>

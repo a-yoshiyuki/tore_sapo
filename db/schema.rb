@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_140922) do
+ActiveRecord::Schema.define(version: 2022_01_09_232441) do
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "follow_id"
+    t.bigint "follower_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["follow_id"], name: "index_relationships_on_follow_id"
-    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["user_id", "follower_id"], name: "index_relationships_on_user_id_and_follower_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
@@ -40,5 +40,5 @@ ActiveRecord::Schema.define(version: 2021_12_26_140922) do
   end
 
   add_foreign_key "relationships", "users"
-  add_foreign_key "relationships", "users", column: "follow_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
