@@ -10,8 +10,7 @@ class UserController < ApplicationController
   end
 
   def show
-    byebug
-    @trainer = User.find(params[:user_id])
+    @trainer = User.find(params[:id])
   end
 
   private
