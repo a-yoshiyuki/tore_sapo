@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
     @user = current_user
     @other_user = User.find(params[:follower])
     @user.follow(@other_user)
-    redirect_to user_trainer_show_path(@user.id)
+    redirect_to user_trainer_show_path(@other_user)
   end
 
   def destroy
