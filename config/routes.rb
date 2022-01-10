@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'user/home'
   get 'user/index'
   get 'user/:id' => 'user#show', as: 'user_trainer_show'
+  post 'relationships' => 'relationships#create'
+  delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
   root :to => 'info#index'
-  resources :relationships, only: [:create, :destroy]
 
   namespace :api, {format: 'json'} do
     namespace :pj1 do

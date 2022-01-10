@@ -10,20 +10,19 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :user
 
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    return if self == other_user
+
+    relationships.find_or_create_by!(follower: other_user)
   end
 
-  def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+  def following?(user)
+    followings.include?(user)
   end
 
-  def following?(other_user)
-    self.followings.include?(other_user)
+  def unfollow(relathinoship_id)
+    relationships.find(relathinoship_id).destroy!
   end
-
+  
   validates :name, presence: true
 
   enum user_style: { トレーナー: 0, トレーニー: 1 }
