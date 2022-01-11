@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def following?(user)
-    followings.include?(user)
+    followings.where(id: user.id).exists?
   end
 
   def unfollow(relathinoship_id)

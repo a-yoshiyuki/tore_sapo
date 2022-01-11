@@ -4,7 +4,7 @@
 <p><%= @trainer.career %></p>
 <% if user_signed_in? && @user %>
   <% if @user.following?(@trainer) %>
-    <%= button_to 'フォロー解除', destroy_relationship_path(current_user.relationships.find_by(follower: user)), method: :delete %>
+    <%= button_to 'フォロー解除', destroy_relationship_path(current_user.relationships.find_by(follower: @user)), method: :delete %>
   <% else %>
     <%= button_to 'フォロー', relationships_path(follower: @user) %>
   <% end %>

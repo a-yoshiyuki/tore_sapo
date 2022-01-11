@@ -2,9 +2,9 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = current_user
-    @other_user = User.find(params[:follower])
-    @user.follow(@other_user)
-    redirect_to user_trainer_show_path(@other_user)
+    other_user = User.find(params[:follower])
+    @user.follow(other_user)
+    redirect_to user_trainer_show_path(other_user)
   end
 
   def destroy
