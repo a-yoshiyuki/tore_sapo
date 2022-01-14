@@ -2,7 +2,6 @@ class UserController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @user = current_user
   end
 
   def index
@@ -11,7 +10,6 @@ class UserController < ApplicationController
 
   def show
     @trainer = User.find(params[:id])
-    @user = current_user
   end
 
   private
