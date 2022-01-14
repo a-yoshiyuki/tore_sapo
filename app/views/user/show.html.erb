@@ -3,9 +3,11 @@
 <p><%= @trainer.self_introduction %></p>
 <p><%= @trainer.career %></p>
 <% if user_signed_in? && current_user %>
-  <% if current_user.following?(@trainer) %>
-    <%= button_to 'フォロー解除', destroy_relationship_path(current_user.relationships.find_by(follower: @trainer)), method: :delete %>
-  <% else %>
-    <%= button_to 'フォロー', relationships_path(follower: @trainer) %>
-  <% end %>
+  <div id="follow-button-#{user.id}">
+    <% if current_user.following?(@trainer) %>
+      <%= render 'relationships/unfollow_button', user: @trainer %>
+    <% else %>
+      <%= render 'relationships/follow_button', user: @trainer %>
+    <% end %>
+  </div>
 <% end %>
