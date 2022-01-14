@@ -2,10 +2,10 @@
 <img src=<%= @trainer.image %> class = "icon_image">
 <p><%= @trainer.self_introduction %></p>
 <p><%= @trainer.career %></p>
-<% if user_signed_in? && @user %>
-  <% if @user.following?(@trainer) %>
-    <%= button_to 'フォロー解除', destroy_relationship_path(current_user.relationships.find_by(follower: @user)), method: :delete %>
+<% if user_signed_in? && current_user %>
+  <% if current_user.following?(@trainer) %>
+    <%= button_to 'フォロー解除', destroy_relationship_path(current_user.relationships.find_by(follower: @trainer)), method: :delete %>
   <% else %>
-    <%= button_to 'フォロー', relationships_path(follower: @user) %>
+    <%= button_to 'フォロー', relationships_path(follower: @trainer) %>
   <% end %>
 <% end %>

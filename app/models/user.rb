@@ -10,7 +10,10 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :user
 
   def follow(other_user)
-    return if self == other_user
+    if self == other_user
+      raise "[follow] self and other_user is same"
+    end
+    Rails.logger.debug "[follow] follow from=#{self.id}, to=#{other_user.id}"
     relationships.find_or_create_by!(follower: other_user)
   end
 
