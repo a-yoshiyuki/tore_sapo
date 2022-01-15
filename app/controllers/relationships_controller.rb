@@ -12,4 +12,12 @@ class RelationshipsController < ApplicationController
     redirect_to request.referer
   end
 
+  def follow_list
+
+  end
+
+  def follower_list
+    
+  end
+
 end
