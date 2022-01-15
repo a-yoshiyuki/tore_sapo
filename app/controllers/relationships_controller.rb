@@ -12,12 +12,13 @@ class RelationshipsController < ApplicationController
     redirect_to request.referer
   end
 
-  def follow_list
-
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
   end
 
-  def follower_list
-    
+  def followers
+
   end
 
 end

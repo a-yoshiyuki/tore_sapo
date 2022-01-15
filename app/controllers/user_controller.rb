@@ -5,11 +5,11 @@ class UserController < ApplicationController
   end
 
   def index
-    @trainers = User.where(user_style: 0)
+    @users = User.where(user_style: 0)
   end
 
   def show
-    @trainer = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   private
