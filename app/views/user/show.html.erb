@@ -3,7 +3,7 @@
 <p><%= @user.self_introduction %></p>
 <p><%= @user.career %></p>
 <% if user_signed_in? && current_user %>
-  <div id="follow-button-#{user.id}">
+  <div id="follow-button-<%= @user.id %>">
     <% if current_user.following?(@user) %>
       <%= render 'relationships/unfollow_button', user: @user %>
     <% else %>
