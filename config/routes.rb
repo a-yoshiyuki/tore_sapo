@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   post 'relationships' => 'relationships#create'
   delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
-  get 'followings' => 'relationships#followings', as: 'followings'
+  get 'followings/user/:id' => 'relationships#followings', as: 'followings'
   get 'relationships/followers'
 
   devise_for :users, controllers: {   registrations: 'users/registrations', sessions: 'users/sessions' }
