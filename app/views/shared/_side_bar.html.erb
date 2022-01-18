@@ -9,6 +9,8 @@
     <a class="list-group-item">
       <%= link_to "フォローリスト", followings_path(current_user) %>
     </a>
-    <a href="../relationships/follower_list" class="list-group-item">フォロワーリスト</a>
+    <a class="list-group-item">
+      <%= link_to "フォローリスト", followers_path(current_user) %>
+    </a>
   </ul>
 <% end %>

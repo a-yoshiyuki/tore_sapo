@@ -1,1 +1,10 @@
 フォロワーリスト
+<% @users.each do |user| %>
+  <ul>
+    <li>
+      <%= link_to user_trainer_show_path(user) do %>
+        <%= user.name %>
+      <% end %>
+    </li>
+  </ul>  
+<% end %>
