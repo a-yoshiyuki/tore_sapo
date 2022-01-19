@@ -2,15 +2,11 @@
   <div id="js-sidebar"></div>
 <% elsif user.トレーニー? %>
   <ul class="list-group">
-    <a href="../test/test" class="list-group-item">メッセージ</a>
+    <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
     <a href="#" class="list-group-item">契約トレーナー</a>
     <a href="#" class="list-group-item">支払い履歴</a>
     <a href="#" class="list-group-item">各種設定</a>
-    <a class="list-group-item">
-      <%= link_to "フォローリスト", followings_path(current_user) %>
-    </a>
-    <a class="list-group-item">
-      <%= link_to "フォローリスト", followers_path(current_user) %>
-    </a>
+    <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
+    <%= link_to "フォローリスト", followers_path(current_user), class: "list-group-item" %>
   </ul>
 <% end %>
