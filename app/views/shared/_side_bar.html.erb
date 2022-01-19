@@ -1,0 +1,15 @@
+<% if user.トレーナー? %>
+  <div id="js-sidebar"></div>
+  <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
+  <%= link_to "フォロワーリスト", followers_path(current_user), class: "list-group-item" %>
+
+<% elsif user.トレーニー? %>
+  <ul class="list-group">
+    <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
+    <a href="#" class="list-group-item">契約トレーナー</a>
+    <a href="#" class="list-group-item">支払い履歴</a>
+    <a href="#" class="list-group-item">各種設定</a>
+    <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
+    <%= link_to "フォロワーリスト", followers_path(current_user), class: "list-group-item" %>
+  </ul>
+<% end %>
