@@ -17,6 +17,9 @@
       <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
       <%= link_to "フォロワーリスト", followers_path(current_user), class: "list-group-item" %>
     </ul>
+    <div id='hello'>
+      {{message}}
+    </div>
   <% elsif user.トレーニー? %>
     <ul class="list-group">
       <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
@@ -30,7 +33,9 @@
 </ul>
 
 <script>
-Vue.component('SlideUpDown', SlideUpDown);
+import SlideUpDown from 'vue-slide-up-down'
+
+Vue.component('vue-slide-up-down', SlideUpDown);
 new Vue({
   el: '#sidebar',
   data: function() {
@@ -39,7 +44,7 @@ new Vue({
     }
   },
   components: {
-    SlideUpDown,
+    SlideUpDown
   },
   methods: {
     mouseOverAction: function () {
