@@ -17,6 +17,12 @@
       <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
       <%= link_to "フォロワーリスト", followers_path(current_user), class: "list-group-item" %>
     </ul>
+    <v-app>
+      <v-btn
+        color="red"
+        elevation="2"
+      >Vuetifyのボタン</v-btn>
+    </v-app>
   <% elsif user.トレーニー? %>
     <ul class="list-group">
       <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
