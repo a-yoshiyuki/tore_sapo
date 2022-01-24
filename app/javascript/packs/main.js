@@ -56,17 +56,36 @@
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
+import Vuetify from "vuetify"
+import "vuetify/dist/vuetify.min.css"
+import SlideUpDown from 'vue-slide-up-down'
 
 Vue.use(TurbolinksAdapter)
+Vue.use(Vuetify)
+
+const vuetify = new Vuetify()
 
 document.addEventListener('turbolinks:load', () => {
+  Vue.component('vue-slide-up-down', SlideUpDown);
   const app = new Vue({
-    el: '#hello',
+    vuetify,
+    el: '#sidebar',
     data: () => {
       return {
-        message: "Can you say hello?"
+        message: "Can you say hello?",
+        isActive: false,
       }
     },
-    components: { App }
+    components: {
+      App
+    },
+    methods: {
+      mouseOverAction: function () {
+        this.isActive = true;
+      },
+      mouseLeaveAction: function () {
+        this.isActive = false;
+      }
+    }
   })
 })
