@@ -69,23 +69,11 @@ document.addEventListener('turbolinks:load', () => {
   Vue.component('vue-slide-up-down', SlideUpDown);
   const app = new Vue({
     vuetify,
-    el: '#sidebar',
+    el: '#hello',
     data: () => {
       return {
         message: "Can you say hello?",
-        isActive: false,
       }
     },
-    components: {
-      App
-    },
-    methods: {
-      mouseOverAction: function () {
-        this.isActive = true;
-      },
-      mouseLeaveAction: function () {
-        this.isActive = false;
-      }
-    }
   })
 })
