@@ -75,5 +75,8 @@ document.addEventListener('turbolinks:load', () => {
         message: "Can you say hello?",
       }
     },
+    components: {
+      App
+    },
   })
 })
