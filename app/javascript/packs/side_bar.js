@@ -11,6 +11,11 @@ Vue.use(Vuetify)
 const vuetify = new Vuetify()
 
 document.addEventListener('turbolinks:load', () => {
+  const el = document.getElementById('sidebar');
+  if (!el) {
+    return;
+  }
+  
   Vue.component('vue-slide-up-down', SlideUpDown);
   const app = new Vue({
     vuetify,

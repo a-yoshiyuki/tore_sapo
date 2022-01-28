@@ -58,7 +58,6 @@ import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
 import Vuetify from "vuetify"
 import "vuetify/dist/vuetify.min.css"
-import SlideUpDown from 'vue-slide-up-down'
 
 Vue.use(TurbolinksAdapter)
 Vue.use(Vuetify)
@@ -66,7 +65,10 @@ Vue.use(Vuetify)
 const vuetify = new Vuetify()
 
 document.addEventListener('turbolinks:load', () => {
-  Vue.component('vue-slide-up-down', SlideUpDown);
+  const el = document.getElementById('hello');
+  if (!el) {
+    return;
+  }
   const app = new Vue({
     vuetify,
     el: '#hello',
