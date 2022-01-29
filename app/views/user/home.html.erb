@@ -10,8 +10,13 @@
       <p><%= current_user.user_style %></p>
       <p><%= current_user.self_introduction %></p>
 
-      <%= link_to "フォローリスト", followings_path(current_user) %>
-      <%= link_to "フォロワーリスト", followers_path(current_user) %>
+      フォロー数:<%= link_to followings_path(current_user) do %>
+                  <%= current_user.followings.count %>
+                <% end %>
+      
+      フォロワー数:<%= link_to followers_path(current_user) do %>
+                    <%= current_user.followers.count %>
+                  <% end %>
       <%= link_to "プロフィール編集", edit_user_registration_path %>
       <%= link_to "testページへ", test_test_path %>
       <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
