@@ -10,6 +10,8 @@
       <p><%= current_user.user_style %></p>
       <p><%= current_user.self_introduction %></p>
 
+      <%= link_to "フォローリスト", followings_path(current_user) %>
+      <%= link_to "フォロワーリスト", followers_path(current_user) %>
       <%= link_to "プロフィール編集", edit_user_registration_path %>
       <%= link_to "testページへ", test_test_path %>
       <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
