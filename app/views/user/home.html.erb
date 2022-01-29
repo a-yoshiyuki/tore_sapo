@@ -10,11 +10,11 @@
       <p><%= current_user.user_style %></p>
       <p><%= current_user.self_introduction %></p>
 
-      フォロー数:<%= link_to followings_path(current_user) do %>
+      フォロー数:<%= link_to followings_path(current_user), class:"no-line" do %>
                   <%= current_user.followings.count %>
                 <% end %>
       
-      フォロワー数:<%= link_to followers_path(current_user) do %>
+      フォロワー数:<%= link_to followers_path(current_user), class:"no-line" do %>
                     <%= current_user.followers.count %>
                   <% end %>
       <%= link_to "プロフィール編集", edit_user_registration_path %>
