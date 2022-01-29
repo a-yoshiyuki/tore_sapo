@@ -6,23 +6,25 @@
     >
       <v-list flat>
         <% if user.トレーナー? %>
-          <ul>
-            <a href="#" class="v-list-item">メッセージ</a>
-            <a href="#" class="v-list-item">契約トレーニー</a>
-            <li class="v-list-item" v-on:mouseover="mouseOverAction" v-on:mouseleave="mouseLeaveAction">
-              売上管理
-              <vue-slide-up-down :active="isActive">
-                <ul class="v-list-item">
-                  <a href="../test/test" class="v-list-item">売上履歴</a>
-                  <a href="#" class="v-list-item">出金申請</a>
-                  <a href="#" class="v-list-item">出金履歴</a>
-                </ul>
-              </vue-slide-up-down>
-            </li>
-            <a href="#" class="v-list-item">各種設定</a>
-            <%= link_to "フォローリスト", followings_path(current_user), class: "v-list-item" %>
-            <%= link_to "フォロワーリスト", followers_path(current_user), class: "v-list-item" %>
-          </ul>
+          <v-list-item-group>
+            <ul>
+              <a href="#" class="v-list-item">メッセージ</a>
+              <a href="#" class="v-list-item">契約トレーニー</a>
+              <li class="v-list-item" v-on:mouseover="mouseOverAction" v-on:mouseleave="mouseLeaveAction">
+                売上管理
+                <vue-slide-up-down :active="isActive">
+                  <ul class="v-list-item">
+                    <a href="../test/test" class="v-list-item">売上履歴</a>
+                    <a href="#" class="v-list-item">出金申請</a>
+                    <a href="#" class="v-list-item">出金履歴</a>
+                  </ul>
+                </vue-slide-up-down>
+              </li>
+              <a href="#" class="v-list-item">各種設定</a>
+              <%= link_to "フォローリスト", followings_path(current_user), class: "v-list-item" %>
+              <%= link_to "フォロワーリスト", followers_path(current_user), class: "v-list-item" %>
+            </ul>
+          </v-list-item-group>
         <% elsif user.トレーニー? %>
           <ul class="list-group">
             <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
@@ -30,7 +32,7 @@
             <a href="#" class="list-group-item">支払い履歴</a>
             <a href="#" class="list-group-item">各種設定</a>
             <%= link_to "フォローリスト", followings_path(current_user), class: "list-group-item" %>
-            <%= link_to "フォロワーリスト", followers_path(current_user), class: "list-group-item" %>
+            <%= link_to "フォロワーリスト", followers_path(current_user), method: :get, class: "list-group-item" %>
           </ul>
         <% end %>
       </v-list>
