@@ -56,13 +56,8 @@
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
-import Vuetify from "vuetify"
-import "vuetify/dist/vuetify.min.css"
 
 Vue.use(TurbolinksAdapter)
-Vue.use(Vuetify)
-
-const vuetify = new Vuetify()
 
 document.addEventListener('turbolinks:load', () => {
   const el = document.getElementById('hello');
@@ -70,7 +65,6 @@ document.addEventListener('turbolinks:load', () => {
     return;
   }
   const app = new Vue({
-    vuetify,
     el: '#hello',
     data: () => {
       return {

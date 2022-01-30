@@ -1,48 +1,22 @@
-<ul id="sidebar">
-  <v-app>
-        <% if user.トレーナー? %>
-          <v-list>
-            <v-list-item-group v-model="model">
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-              >
-                <v-list-item-icon>
-                  <v-icon v-text="item.icon"></v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-<%#             <ul>
-              <a href="#" class="v-list-item">メッセージ</a>
-              <a href="#" class="v-list-item">契約トレーニー</a>
-              <li class="v-list-item" v-on:mouseover="mouseOverAction" v-on:mouseleave="mouseLeaveAction">
-                売上管理
-                <vue-slide-up-down :active="isActive">
-                  <ul class="v-list-item">
-                    <a href="../test/test" class="v-list-item">売上履歴</a>
-                    <a href="#" class="v-list-item">出金申請</a>
-                    <a href="#" class="v-list-item">出金履歴</a>
-                  </ul>
-                </vue-slide-up-down>
-              </li>
-              <a href="#" class="v-list-item">各種設定</a>
-              <%= link_to "フォローリスト", followings_path(current_user), class: "v-list-item" %>
-<%#               <%= link_to "フォロワーリスト", followers_path(current_user), class: "v-list-item" %>
-<%#             </ul>
- %>        <% elsif user.トレーニー? %>
-          <ul class="list-group">
-            <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
-            <a href="#" class="list-group-item">契約トレーナー</a>
-            <a href="#" class="list-group-item">支払い履歴</a>
-            <a href="#" class="list-group-item">各種設定</a>
-          </ul>
-        <% end %>
-  </v-app>
+<ul id="sidebar" class="list-group">
+  <% if user.トレーナー? %>
+      <a href="#" class="list-group-item">メッセージ</a>
+      <a href="#" class="list-group-item">契約トレーニー</a>
+      <%= link_to "各種設定", test_test_path, class:"list-group-item" %>
+      <li class="list-group-item" @click="isOpen">
+        売上管理
+        <vue-slide-up-down :active="isActive">
+          <ul class="list-group list-group-flush">
+            <a href="../test/test" class="list-group-item">売上履歴</a>
+            <a href="#" class="list-group-item">出金申請</a>
+            <a href="#" class="list-group-item">出金履歴</a>
+        </vue-slide-up-down>
+      </li>
+    </ul>
+  <% elsif user.トレーニー? %>
+      <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
+      <a href="#" class="list-group-item">契約トレーナー</a>
+      <a href="#" class="list-group-item">支払い履歴</a>
+      <a href="#" class="list-group-item">各種設定</a>
+  <% end %>
 </ul>
-<div id="hello">
-  <p>{{ message }}</p>
-</div>
