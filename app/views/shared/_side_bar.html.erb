@@ -1,22 +1,24 @@
-<ul id="sidebar" class="list-group">
-  <% if user.トレーナー? %>
-      <a href="#" class="list-group-item">メッセージ</a>
-      <a href="#" class="list-group-item">契約トレーニー</a>
-      <%= link_to "各種設定", test_test_path, class:"list-group-item" %>
-      <li class="list-group-item" @click="isOpen">
-        売上管理
-        <vue-slide-up-down :active="isActive">
-          <ul class="list-group list-group-flush">
-            <a href="../test/test" class="list-group-item">売上履歴</a>
-            <a href="#" class="list-group-item">出金申請</a>
-            <a href="#" class="list-group-item">出金履歴</a>
-        </vue-slide-up-down>
-      </li>
-    </ul>
-  <% elsif user.トレーニー? %>
-      <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
-      <a href="#" class="list-group-item">契約トレーナー</a>
-      <a href="#" class="list-group-item">支払い履歴</a>
-      <a href="#" class="list-group-item">各種設定</a>
-  <% end %>
-</ul>
+<div id="sidebar" v-cloak>
+  <ul class="list-group">
+    <% if user.トレーナー? %>
+        <a href="#" class="list-group-item">メッセージ</a>
+        <a href="#" class="list-group-item">契約トレーニー</a>
+        <%= link_to "各種設定", test_test_path, class:"list-group-item" %>
+        <li class="list-group-item" @click="isOpen">
+          売上管理
+          <vue-slide-up-down :active="isActive">
+            <ul class="list-group list-group-flush">
+              <a href="../test/test" class="list-group-item">売上履歴</a>
+              <a href="#" class="list-group-item">出金申請</a>
+              <a href="#" class="list-group-item">出金履歴</a>
+          </vue-slide-up-down>
+        </li>
+      </ul>
+    <% elsif user.トレーニー? %>
+        <%= link_to "メッセージ", test_test_path, class: "list-group-item" %>
+        <a href="#" class="list-group-item">契約トレーナー</a>
+        <a href="#" class="list-group-item">支払い履歴</a>
+        <a href="#" class="list-group-item">各種設定</a>
+    <% end %>
+  </ul>
+</div>
