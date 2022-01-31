@@ -12,3 +12,11 @@ environment.plugins.append('Provide', new webpack.ProvidePlugin({
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
 module.exports = environment
+
+environment.config.merge({
+    resolve: {
+        alias: {
+        'vue$': 'vue/dist/vue.esm.js'
+        }
+    }
+})
