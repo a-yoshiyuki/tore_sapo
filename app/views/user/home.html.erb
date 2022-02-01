@@ -1,25 +1,27 @@
 <body>
-  <div class="row">
-    <div class="col-2">
-      <%= render 'shared/side_bar', user: current_user %>
-    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <%= render 'shared/side_bar', user: current_user %>
+      </div>
 
-    <div class="col-10">
-      <h3><%= current_user.name %></h3>
-      <img src=<%= current_user.image %> class = "icon_image">
-      <p><%= current_user.user_style %></p>
-      <p><%= current_user.self_introduction %></p>
+      <div class="col-10">
+        <h3><%= current_user.name %></h3>
+        <img src=<%= current_user.image %> class = "icon_image">
+        <p><%= current_user.user_style %></p>
+        <p><%= current_user.self_introduction %></p>
 
-      フォロー数:<%= link_to followings_path(current_user), class:"no-line" do %>
-                  <%= current_user.followings.count %>
-                <% end %>
-      
-      フォロワー数:<%= link_to followers_path(current_user), class:"no-line" do %>
-                    <%= current_user.followers.count %>
+        フォロー数:<%= link_to followings_path(current_user), class:"no-line" do %>
+                    <%= current_user.followings.count %>
                   <% end %>
-      <%= link_to "プロフィール編集", edit_user_registration_path %>
-      <%= link_to "testページへ", test_test_path %>
-      <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+        
+        フォロワー数:<%= link_to followers_path(current_user), class:"no-line" do %>
+                      <%= current_user.followers.count %>
+                    <% end %>
+        <%= link_to "プロフィール編集", edit_user_registration_path %>
+        <%= link_to "testページへ", test_test_path %>
+        <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
     </div>
   </div>
 </body>
