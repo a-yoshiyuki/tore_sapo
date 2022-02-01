@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :user, only: [:index, :show] do
     collection do
       get 'home'
-      get 'user/:id' => 'user#show'
     end
   end
   
+  #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
   delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
   get 'followings/user/:id' => 'relationships#followings', as: 'followings'
