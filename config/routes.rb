@@ -2,10 +2,14 @@ Rails.application.routes.draw do
 
   root :to => 'info#index'
   get 'test/test'
-  get 'user/home'
-  get 'user/index'
-  get 'user/:id' => 'user#show', as: 'user_trainer_show'
+
+  resources :user, only: [:index, :show] do
+    collection do
+      get 'home'
+    end
+  end
   
+  #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
   delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
   get 'followings/user/:id' => 'relationships#followings', as: 'followings'

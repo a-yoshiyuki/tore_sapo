@@ -61,10 +61,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    user_home_path
+    home_user_index_path
   end
 
   def after_update_path_for(resource)
-    user_home_path
+    home_user_index_path
   end
 end
