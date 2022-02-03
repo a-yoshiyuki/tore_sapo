@@ -9,3 +9,15 @@ ul {
 .no-line {
   text-decoration: none;
 }
+
+.card_icon_image {
+  display: block;
+  margin: auto;
+  width: 80%;
+  //サイズ指定
+  border-radius: 70%;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+
+}
