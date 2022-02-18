@@ -1,0 +1,2 @@
+class UserMessageRoom < ApplicationRecord
+end
