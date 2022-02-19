@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_232441) do
+ActiveRecord::Schema.define(version: 2022_02_18_233256) do
+
+  create_table "message_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -20,6 +30,15 @@ ActiveRecord::Schema.define(version: 2022_01_09_232441) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
     t.index ["user_id", "follower_id"], name: "index_relationships_on_user_id_and_follower_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
+  create_table "user_message_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "message_room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["message_room_id"], name: "index_user_message_rooms_on_message_room_id"
+    t.index ["user_id"], name: "index_user_message_rooms_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -41,4 +60,6 @@ ActiveRecord::Schema.define(version: 2022_01_09_232441) do
 
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "user_message_rooms", "message_rooms"
+  add_foreign_key "user_message_rooms", "users"
 end
