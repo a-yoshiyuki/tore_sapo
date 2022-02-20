@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get 'home'
     end
   end
+
+  resources :message_rooms, only: [:create, :show]
   
   #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
