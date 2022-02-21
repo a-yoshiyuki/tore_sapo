@@ -15,5 +15,8 @@ class MessageRoomsController < ApplicationController
   end
 
   def show
+    @message_room = MessageRoom.find(params[:id])
+    @user_message_room = @message_room.user_message_room.where.not(user_id: current_user.id).first.user
+    @messages = Message.where(message_room: @message_room)
   end
 end
