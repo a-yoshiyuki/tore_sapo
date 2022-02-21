@@ -7,7 +7,7 @@ class MessageRoomsController < ApplicationController
     
     if message_room.blank?
       message_room = MessageRoom.create
-      MessageRoom.create(message_room: message_room, user_id: current_user.id)
+      UserMessageRoom.create(message_room: message_room, user_id: current_user.id)
       UserMessageRoom.create(message_room: message_room, user_id: params[:user_id])
     end
 
