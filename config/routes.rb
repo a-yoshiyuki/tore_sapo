@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :message_rooms, only: [:create, :show]
+  resources :message_rooms, only: [:create, :show, :index]
   
   #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
