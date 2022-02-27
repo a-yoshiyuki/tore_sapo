@@ -40,9 +40,13 @@ ActiveRecord::Schema.define(version: 2022_02_21_023903) do
   create_table "user_message_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "message_room_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "participant_user_id", null: false
+    t.text "last_message_content"
+    t.datetime "last_message_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["message_room_id"], name: "index_user_message_rooms_on_message_room_id"
+    t.index ["participant_user_id"], name: "index_user_message_rooms_on_participant_user_id"
     t.index ["user_id"], name: "index_user_message_rooms_on_user_id"
   end
 
@@ -69,4 +73,5 @@ ActiveRecord::Schema.define(version: 2022_02_21_023903) do
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "user_message_rooms", "message_rooms"
   add_foreign_key "user_message_rooms", "users"
+  add_foreign_key "user_message_rooms", "users", column: "participant_user_id"
 end
