@@ -9,5 +9,4 @@
     </li>
   </ul>
   <%= button_to "メッセージを送る", message_rooms_path(params: { user_id: user.id }), method: :post %>
-  <%= render 'shared/message_form', user: current_user %>
 <% end %>
