@@ -6,8 +6,12 @@ class MessageRoomsController < ApplicationController
   end
 
   def create
-    @message_room = MessageRoom.create
-    
+
+    if message_room.blank?
+      message_room = MessageRoom.create
+      UserMessageRoom.create(message_room: message_room, user_id: current_user.id)
+      UserMessageRoom.create(message_room: message_room, user_id: participant_user.id)
+    end
   end
 
   def show
