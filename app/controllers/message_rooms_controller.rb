@@ -6,6 +6,8 @@ class MessageRoomsController < ApplicationController
   end
 
   def create
+    @message_room = MessageRoom.create
+    
   end
 
   def show
