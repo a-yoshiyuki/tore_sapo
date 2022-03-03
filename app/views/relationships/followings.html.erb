@@ -8,5 +8,5 @@
       <% end %>
     </li>
   </ul>
-  <%= button_to "メッセージを送る", message_rooms_path(params[:id]), method: :post %>
+  <%= button_to "メッセージを送る", message_rooms_path(message_room: {participant_user_id: user.id, current_user_id: current_user.id}), method: :post %>
 <% end %>

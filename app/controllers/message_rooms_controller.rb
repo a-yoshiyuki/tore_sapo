@@ -6,11 +6,15 @@ class MessageRoomsController < ApplicationController
   end
 
   def create
+    participant_user = params[:participant_user_id]
+    current_user = params[:current_user_id]
+    message_room = UserMessageRoom.find_by(user_id: current_user.id, participant_user_id: participant_user.id)&.message_room
 
-    if message_room.blank?
+    if message_room
+      redirect_to message_room_path(message_room_id: @message_room.id)
+    else
       message_room = MessageRoom.create
-      UserMessageRoom.create(message_room: message_room, user_id: current_user.id)
-      UserMessageRoom.create(message_room: message_room, user_id: participant_user.id)
+      redirect_to message_room_path(message_room_id: @message_room.id)
     end
   end
 
