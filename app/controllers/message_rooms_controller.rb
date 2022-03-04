@@ -5,6 +5,11 @@ class MessageRoomsController < ApplicationController
     @user_message_rooms = UserMessageRoom.all
   end
 
+  def new
+    @message = Message.new
+    @participant_user = 
+  end
+
   def create
     participant_user = User.find(params[:participant_user_id])
     message_room = UserMessageRoom.find_by(user_id: current_user.id, participant_user_id: participant_user.id)&.message_room
