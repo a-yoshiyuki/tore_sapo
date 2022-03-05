@@ -1,0 +1,5 @@
+<%= form_with model: @message, url: message_rooms_path, method: :post, local: true do |message| %>
+  <%= message.hidden_field :participant_user_id, value: @participant_user %>
+  <%= message.text_area :content %>
+  <%= message.submit "送信" %>
+<% end %>
