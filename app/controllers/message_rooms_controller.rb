@@ -7,7 +7,6 @@ class MessageRoomsController < ApplicationController
 
   def new
     @message = Message.new
-    @participant_user = 
   end
 
   def create
