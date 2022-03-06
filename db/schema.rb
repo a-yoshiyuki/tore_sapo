@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2022_02_21_023903) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "message_room_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "participant_user_id", null: false
     t.text "content"
     t.index ["message_room_id"], name: "index_messages_on_message_room_id"
+    t.index ["participant_user_id"], name: "index_messages_on_participant_user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
