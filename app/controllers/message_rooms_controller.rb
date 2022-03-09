@@ -14,18 +14,15 @@ class MessageRoomsController < ApplicationController
     message_room = UserMessageRoom.find_by(user_id: current_user.id, participant_user_id: participant_user.id)&.message_room
 
     if message_room
-      redirect_to message_room_path(id: message_room.id)
     else
       message_room = MessageRoom.create
-      redirect_to message_room_path(id: message_room.id)
     end
 
-    user = current_user
-    message_room = MessageRoom.find_by(params[:message_room_id])
-    participant_user = User.find_by(params[:participant_user_id])
     message = Message.new(message_params)
     message.save
     Rails.logger.debug message.errors.full_messages
+
+    redirect_to message_room_path(id: message_room.id)
   end
 
   def show

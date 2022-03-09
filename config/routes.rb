@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :message_rooms, only: [:new, :create, :show, :index]
-  
+
   #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
   delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
