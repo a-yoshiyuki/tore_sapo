@@ -1,6 +1,6 @@
 フォローリスト
 
-<% @users.each do |user| %>
+<% @participant_user.each do |user| %>
   <ul>
     <li>
       <%= link_to user_path(user) do %>
@@ -8,5 +8,16 @@
       <% end %>
     </li>
   </ul>
-  <%= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
+
+    <% if @have_message_room == true %>
+      <%= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
+    <% else %>
+      <%= form_with model: @message_room, url: message_rooms_path, method: :post, local: true do |f|%>
+        <%= fields_for @user_message_room do |r| %>
+          <%= r.hidden_field :participant_user_id, value: user.id %>
+        <% end %>
+        <%= f.submit "メッセージで相談" %>
+      <% end %>
+    <% end %>
+  <%#= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
 <% end %>
