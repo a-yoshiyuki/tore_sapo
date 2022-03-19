@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_023903) do
+ActiveRecord::Schema.define(version: 2022_03_19_004825) do
 
   create_table "message_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -22,10 +22,8 @@ ActiveRecord::Schema.define(version: 2022_02_21_023903) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "message_room_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "participant_user_id", null: false
     t.text "content"
     t.index ["message_room_id"], name: "index_messages_on_message_room_id"
-    t.index ["participant_user_id"], name: "index_messages_on_participant_user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -44,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_02_21_023903) do
     t.bigint "user_id", null: false
     t.bigint "participant_user_id", null: false
     t.text "last_message_content"
-    t.datetime "last_message_updated_at", null: false
+    t.datetime "last_message_updated_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["message_room_id"], name: "index_user_message_rooms_on_message_room_id"
