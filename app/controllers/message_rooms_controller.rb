@@ -10,8 +10,9 @@ class MessageRoomsController < ApplicationController
   def create
     participant_user = User.find_by(params[:participant_user_id])
     @message_room = MessageRoom.create
-    @join_current_user = UserMessageRoom.create(user_id: current_user.id, participant_user_id: participant_user.id, message_room_id: @message_room.id)
-    
+    #@join_current_user = UserMessageRoom.create(user_id: current_user.id, message_room_id: @message_room.id)
+    #@join_participant_user = UserMessageRoom.create(participant_user_id: participant_user.id)
+    redirect_to message_room_path(@message_room.id)
     #participant_user = User.find_by(params[:participant_user_id])
     #message_room = UserMessageRoom.find_by(user_id: current_user.id, participant_user_id: participant_user.id)&.message_room
 
@@ -28,7 +29,7 @@ class MessageRoomsController < ApplicationController
   end
 
   private
-  def message_params
-    params.require(:message).permit(:content, :participant_user_id, :user_id, :message_room_id)
+  def join_room_params
+    params.require(:user_message_room).permit(:participant_user_id, :user_id).merge(message_room_id: @message_room.id)
   end
 end
