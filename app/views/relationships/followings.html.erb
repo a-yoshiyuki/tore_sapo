@@ -9,15 +9,14 @@
     </li>
   </ul>
 
-    <% if @have_message_room == true %>
-      <%= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
-    <% else %>
-      <%= form_with model: @message_room, url: message_rooms_path, method: :post, local: true do |message_room| %>
-        <%= fields_for @user_message_room do |user_message_room| %>
-          <%= user_message_room.hidden_field :participant_user_id, value: user.id %>
-        <% end %>
-        <%= message_room.submit "メッセージで相談" %>
+  <% if @have_message_room == true %>
+    <%= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
+  <% else %>
+    <%= form_with model: @message_room, url: message_rooms_path, method: :post, local: true do |message_room| %>
+      <%= fields_for @user_message_room do |user_message_room| %>
+        <%= user_message_room.hidden_field :participant_user_id, value: user.id %>
       <% end %>
+      <%= message_room.submit "メッセージで相談" %>
     <% end %>
-  <%#= button_to "メッセージを送る", message_room_path, { method: :get, params: {participant_user: user} } %>
+  <% end %>
 <% end %>
