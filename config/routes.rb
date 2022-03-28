@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :message_rooms, only: [:new, :create, :show, :index]
 
+  resources :messages
+
   #フォロー・フォロワー機能
   post 'relationships' => 'relationships#create'
   delete 'relationships/:id' => 'relationships#destroy', as: 'destroy_relationship'
