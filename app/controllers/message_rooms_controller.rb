@@ -4,23 +4,23 @@ class MessageRoomsController < ApplicationController
   def index
   end
 
-  def show
+  def create
     participant_user = User.find_by(params[:participant_user_id])
+    @message_room = MessageRoom.create
+    @join_user = UserMessageRoom.create(user_id: current_user.id, participant_user_id: participant_user.id, message_room_id: @message_room.id)
+    redirect_to message_room_path(@message_room.id)
+  end
+
+  def show
+    @participant_user = User.find_by(params[:participant_user_id])
     @message_room = MessageRoom.find(params[:id])
-    if UserMessageRoom.where(user_id: current_user.id, message_room_id: @message_room.id, participant_user_id: participant_user).present?
+    if UserMessageRoom.where(user_id: current_user.id, message_room_id: @message_room.id, participant_user_id: @participant_user.id).present?
       @messages = @message_room.messages
       @message = Message.new
       @user_message_room = @message_room.user_message_rooms
     else
       redirect_back(fallback_location: root_path)
     end
-  end
-
-  def create
-    participant_user = User.find_by(params[:participant_user_id])
-    @message_room = MessageRoom.create
-    @join_user = UserMessageRoom.create(user_id: current_user.id, participant_user_id: participant_user.id, message_room_id: @message_room.id)
-    redirect_to message_room_path(@message_room.id)
   end
 
   private

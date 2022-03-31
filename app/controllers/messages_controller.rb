@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
 
   def create
     if UserMessageRoom.where(user_id: current_user.id, message_room_id: @message_room.id, participant_user_id: @participant_user).present?
