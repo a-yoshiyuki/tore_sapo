@@ -5,7 +5,7 @@ class CreateUserMessageRooms < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
       t.references :participant_user, null: false, foreign_key: { to_table: :users }
       t.text :last_message_content
-      t.datetime :last_message_updated_at, null: false
+      t.datetime :last_message_updated_at
 
       t.timestamps
     end

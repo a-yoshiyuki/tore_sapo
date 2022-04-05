@@ -2,9 +2,9 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if UserMessageRoom.where(user_id: current_user.id, message_room_id: @message_room.id, participant_user_id: @participant_user).present?
-      @message = Message.create(message_params)
-      redirect_to message_room_path(@message.room_id)
+    if UserMessageRoom.where(user_id: current_user.id, message_room_id: message_params[:message_room_id], participant_user_id: message_params[:participant_user_id]).present?
+      @message = Message.create!(message_params.slice(:user_id, :message_room_id, :content))
+      redirect_to message_room_path(@message.message_room_id)
     else
       flash[:alert] = "メッセージの送信に失敗しました。"
     end

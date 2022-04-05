@@ -34,13 +34,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
 
 
       # Uncomment below if timestamps were not included in your original model.
-      t.string :last_name, null: false, default: ""
-      t.string :first_name, null: false, default: ""
-      t.string :last_name_kana, null: false, default: ""
-      t.string :first_name_kana, null: false, default: ""
+      t.string :name, null: false, default: ""
       t.string :image
       t.text :self_introduction
-      t.boolean :user_style, null: false, default: true
+      t.integer :user_style, null: false, default: 0
       t.text :career
       
       t.timestamps null: false
