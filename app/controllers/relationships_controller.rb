@@ -12,8 +12,9 @@ class RelationshipsController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
+    @following_users = @user.followings
     @current_user_message_room = UserMessageRoom.where(user_id: current_user.id)
-    @receive_user = UserMessageRoom.where(user_id: @user.id)
+    @receive_user = UserMessageRoom.where(user_id: @following_users)
 
     unless @user.id == current_user.id
       @current_user_message_room.each do |cu|    #current_userが参加していルームを取り出す

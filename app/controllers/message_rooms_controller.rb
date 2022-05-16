@@ -6,8 +6,8 @@ class MessageRoomsController < ApplicationController
 
   def create
     @message_room = MessageRoom.create
-    join_user = UserMessageRoom.find_or_create_by(user_id: current_user.id, message_room_id: @message_room.id)
-    joinUser = RoomUser.create(join_room_params)
+    join_current_user = UserMessageRoom.find_or_create_by(user_id: current_user.id, message_room_id: @message_room.id)
+    join_user = UserMessageRoom.create(join_room_params)
 
     redirect_to message_room_path(@message_room.id)
   end
