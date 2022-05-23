@@ -22,9 +22,6 @@
               <%= button_to "トレーナー", home_user_index_path, method: :get, class: "nav-button" %>
             <% elsif current_user.トレーニー? %>
               <%= button_to "トレーナーを探す", user_index_path, method: :get, class: "nav-button" %>
-              <%= link_to home_user_index_path do %>
-                <li>トレーニー</li>
-              <% end %>
               <%= button_to "トレーニー", home_user_index_path, method: :get, class: "nav-button" %>
             <% end %>
           <% else %>
