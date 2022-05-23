@@ -25,6 +25,6 @@ class MessageRoomsController < ApplicationController
 
   private
   def join_room_params
-    params.require(:user_message_room).permit(:user_id, :room_id).merge(message_room_id: @message_room.id)
+    params.require(:user_message_room).permit(:user_id, :message_room_id).merge(message_room_id: @message_room.id)
   end
 end
