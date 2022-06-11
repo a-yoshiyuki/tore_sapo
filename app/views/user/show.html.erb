@@ -10,4 +10,17 @@
       <%= render 'relationships/follow_button', user: @user %>
     <% end %>
   </div>
+
+  <% unless @user.id == current_user.id %>
+    <% if @have_message_room == true %>
+      <%= button_to "メッセージを送る", message_room_path, { method: :get } %>
+    <% else %>
+      <%= form_with model: @message_room, url: message_rooms_path, method: :post, local: true do |message_room| %>
+        <%= message_room.fields_for :user_message_room do |user_message_room| %>
+          <%= user_message_room.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <%= message_room.submit "メッセージで相談" %>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>
