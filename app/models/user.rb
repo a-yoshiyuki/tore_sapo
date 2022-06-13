@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # --メッセージ機能--
   has_many :user_message_rooms
   has_many :message_rooms, through: :user_message_rooms
   has_many :messages
+  # --メッセージ機能--
   
+  # --フォロー機能--
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follower
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
@@ -28,6 +31,7 @@ class User < ApplicationRecord
   def unfollow(relathinoship_id)
     relationships.find(relathinoship_id).destroy!
   end
+  # --フォロー機能--
   
   validates :name, presence: true
 
